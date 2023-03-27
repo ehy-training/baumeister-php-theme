@@ -12,8 +12,14 @@
     <header>
         <h1><?php bloginfo('title'); ?></h1>
     </header>
+    
+        <nav class="burger-icon">
+    <a href="#mobile-nav"><div></div></a>
+    </nav>
 
-    <nav></nav>
+    <nav class="main-nav">
+        <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+    </nav>
 
     <main>
 
@@ -33,10 +39,18 @@
     </main>
 
     <footer>
+           <nav class="footer-nav">
+        <?php wp_nav_menu( array( 'theme_location' => 'secondary-menu' ) ); ?>
+    </nav>
+       
         <p>
             © 2023 Enno Hyttrek
         </p>
     </footer>
+       
+        <nav  id="mobile-nav" class="mobile-nav">
+        <?php wp_nav_menu( array( 'theme_location' => 'mobile-menu' ) ); ?>
+    </nav>
 
 </body>
 

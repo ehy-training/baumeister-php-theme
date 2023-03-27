@@ -93,42 +93,47 @@ NAVIGATION
 
 nav.burger-icon {
     position:fixed;
+    width: 100%;
+    z-index: 1000;
     top: 0;
     right: 0;
     padding: 0.5em;
+    background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 
 
 nav.burger-icon div {
     width: 50px;
     height: 50px;
+    margin-left: 80vw;
     background: red;
 }
 
-nav.main-nav {
+nav.main-nav > div {
     background: rgba(0,0,0,0.9);
     position: sticky;
     top: 0;
 }
 
 
-nav.main-nav > ul {
+nav.main-nav > div > ul {
     display: flex;
     list-style-type: none;
 }
 
-nav.main-nav > ul > li {
+nav.main-nav > div > ul > li {
     margin-right: 1em;
 }
 
-nav.main-nav > ul > li a {
+nav.main-nav > div > ul > li a {
     display: inline-block;
     text-decoration: none;
     color: #fff;
     padding: 0.5em 0;
 }
 
-nav.main-nav > ul > li a:hover {
+nav.main-nav > div > ul > li a:hover {
     color: rgb(255,128,0);    
 }
 
@@ -138,12 +143,12 @@ nav.mobile-nav {
 padding-bottom: 100vh;
 }
 
-nav.mobile-nav ul {
+nav.mobile-nav > div ul {
        list-style-type: none; 
     padding: 0;
 }
 
-nav.mobile-nav > ul > li a {
+nav.mobile-nav > div > ul > li a {
     display: inline-block;
     text-decoration: none;
     color: #fff;
