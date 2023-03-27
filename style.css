@@ -1,7 +1,9 @@
 /*
 Theme Name: Baumeister Custom PHP Theme
 Author: Enno Hyttrek
-Version: 2.0
+Author URI: https://ennohyttrek.de
+Description: Ein einfaches PHP basiertes Theme, um zu lerenen, wie man das überhaupt macht.
+Version: 3.0
 */
 
 /*---------------------
@@ -11,8 +13,11 @@ RESET
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  
 }
+/*
+Ein sehr ausführlicher und von vielen auch gern genutzter CSS-Reset findet sich hier: https://github.com/necolas/normalize.css
+*/
 
 
 nav.main-nav {
@@ -29,6 +34,10 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,figure {
     margin-bottom: 1em;
 }
 
+/**--------
+Layout Header
+--------**/
+
 header {
     padding-top: 100px;
 }
@@ -42,8 +51,6 @@ article {
     display: flex;
     flex-wrap: wrap;
 }
-
-
 
 h2 {
     width: 100%
@@ -169,10 +176,12 @@ RESPONSIVE (MEDIAQUERIES)
     display: none;
 }
 
+    /*    
     p {
-        width: 45%;
+        width: 50%;
         padding-right: 1em;
     }
+    */
 
     main {
         font-size: 1em;
@@ -182,8 +191,9 @@ RESPONSIVE (MEDIAQUERIES)
 
 
 @media only screen and (min-width: 900px) {
-
+/*
     p {
         width: 33%;
     }
+    */
 }
