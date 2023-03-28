@@ -65,8 +65,7 @@ TYPOGRAPHY
 ---------------------*/
 
 body {
-    font-family: Arial, sans-serif;
-
+    font-family: 'Delicious Handrawn', 'Roboto', Arial, sans-serif;
 }
 
 main {
@@ -202,3 +201,22 @@ RESPONSIVE (MEDIAQUERIES)
     }
     */
 }
+
+
+/*---------------------
+TEST & OVERRIDES
+---------------------*/
+
+
+
+
+article h2 {
+    background: red;
+}
+
+
+article h2 {
+    background: pink;
+}
+
+
