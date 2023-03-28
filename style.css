@@ -3,7 +3,7 @@ Theme Name: Baumeister Custom PHP Theme
 Author: Enno Hyttrek
 Author URI: https://ennohyttrek.de
 Description: Ein einfaches PHP basiertes Theme, um zu lerenen, wie man das überhaupt macht.
-Version: 5.0
+Version: 6.0
 */
 
 /*---------------------
@@ -65,7 +65,7 @@ TYPOGRAPHY
 ---------------------*/
 
 body {
-    font-family: 'Delicious Handrawn', 'Roboto', Arial, sans-serif;
+    font-family: 'Delicious Handrawn', Arial, sans-serif;
 }
 
 main {
