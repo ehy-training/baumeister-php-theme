@@ -11,11 +11,14 @@
 <body>
 
     <header>
+      <p class="header-icon">
+       <i class="fas fa-vihara"></i>
+       </p>
         <h1><?php bloginfo('title'); ?></h1>
     </header>
     
         <nav class="burger-icon">
-    <a href="#mobile-nav"><div></div></a>
+    <a href="#mobile-nav"><i class="fas fa-bars"></i></a>
     </nav>
 
     <nav class="main-nav">
