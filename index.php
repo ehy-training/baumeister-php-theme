@@ -8,7 +8,7 @@
     <?php wp_head() ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
     <header>
       <p class="header-icon">
@@ -55,7 +55,7 @@
         <nav  id="mobile-nav" class="mobile-nav">
         <?php wp_nav_menu( array( 'theme_location' => 'mobile-menu' ) ); ?>
     </nav>
-
+<?php wp_footer() ?>
 </body>
 
 </html>
