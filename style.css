@@ -2,8 +2,8 @@
 Theme Name: Baumeister Custom PHP Theme
 Author: Enno Hyttrek
 Author URI: https://ennohyttrek.de
-Description: Ein einfaches PHP basiertes Theme, um zu lerenen, wie man das überhaupt macht.
-Version: 8.0
+Description: Ein einfaches PHP basiertes Theme, um zu lernen, wie man das überhaupt macht.
+Version: 8.1
 */
 
 /*---------------------
@@ -13,8 +13,9 @@ RESET
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  
+    box-sizing: border-box;
 }
+
 /*
 Ein sehr ausführlicher und von vielen auch gern genutzter CSS-Reset findet sich hier: https://github.com/necolas/normalize.css
 */
@@ -24,14 +25,71 @@ nav.main-nav {
     display: none;
 }
 
+ul {
+    padding: 40px;
+}
+
 
 /*---------------------
 LAYOUT
 ---------------------*/
 
-h1,h2,h3,h4,h5,h6,p,ul,ol,figure {
-    padding: 0 20px;
-    margin-bottom: 1em;
+/**--------
+Layout Variables
+--------**/
+
+:root {
+    --layout-column-gap: 1rem;
+}
+
+/**--------
+Custom general margins and paddings
+--------**/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure {
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+
+/**--------
+'Stage'
+--------**/
+
+section > div.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em 20px;
+}
+
+/**--------
+Flexboxes
+--------**/
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--layout-column-gap);
+}
+
+.flexbox h1,
+.flexbox h2,
+.flexbox h3 {
+    width: 100%;
+}
+
+.flex-columns {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /**--------
@@ -39,7 +97,7 @@ Layout Header
 --------**/
 
 header {
-padding-top: 1em;
+    padding-top: 1em;
 }
 
 header p {
@@ -55,20 +113,13 @@ body.home header {
 }
 
 body.home .header-icon {
-    font-size: 3em;   
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
+    font-size: 3em;
 }
 
 article {
     display: flex;
     flex-wrap: wrap;
 }
-
-
 
 h2 {
     width: 100%
@@ -78,18 +129,73 @@ footer {
     min-height: 500px;
 }
 
+/**--------
+Layout Standard Elements (Variations: see -> COMPONENTS)
+--------**/
+
+ul li {
+    margin-left: 1.3em;
+}
+
+
 /*---------------------
 TYPOGRAPHY
 ---------------------*/
 
-body {
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: 300;
-    line-height: 1.5;
+/**--------
+Typography Variables
+--------**/
+
+:root {
+    --type-line-height: 1.5;
 }
 
-main {
-    font-size: 1.3em;
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    line-height: var(--type-line-height);
+    font-size: 15px;
+}
+
+
+p {
+    margin-bottom: calc(1em * var(--type-line-height));
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+    padding-top: 2rem;
+    line-height: 1;
+}
+
+h1,
+h2 {
+    font-size: 2.6em;
+    padding-top: 0.8em;
+}
+
+h2 {
+    font-weight: 200;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-weight: 800;
+    line-height: var(--type-line-height);
+    padding-top: calc(1em * var(--type-line-height));
+    margin-bottom: calc(1em * var(--type-line-height));
+/*    margin-bottom: 0;*/
+}
+
+h4.first-h4 {
+    padding-top: 0;
 }
 
 
@@ -97,10 +203,83 @@ main {
 COLOR & STYLE
 ---------------------*/
 
+/**--------
+Color variables
+--------**/
+
+:root {
+    --grey-saturation: 8%;
+    --grey-hue: 200;
+    --color-subblack: hsl(var(--grey-hue), 5%, 8%);
+    --color-greydark: hsl(var(--grey-hue), var(--grey-saturation), 21%);
+    --color-grey: hsl(var(--grey-hue), var(--grey-saturation), 55%);
+    --color-greylight: hsl(var(--grey-hue), var(--grey-saturation), 89%);
+    --color-subwhite: hsl(var(--grey-hue), 5%, 97%);
+    --color-accenta: hsl(34, 94%, 55%);
+    --color-accentb: hsl(89, 76%, 42%);
+    --color-dummy: rgb(255, 0, 128);
+}
+
+/**--------
+Color themes background
+--------**/
+
+.dummy {
+    background: var(--color-dummy);
+    color: #fff;
+}
+
+.sub-black {
+    background: var(--color-subblack);
+    color: var(--color-subwhite);
+}
+
+.grey-dark {
+    background: var(--color-greydark);
+    color: var(--color-greylight);
+}
+
+.grey-light {
+    background: var(--color-greylight);
+    color: var(--color-greydark);
+}
+
+.sub-white {
+    background: var(--color-subwhite);
+    color: var(--color-subblack);
+}
+
+.accent-a {
+    background: var(--color-accenta);
+    color: #fff;
+}
+
+.accent-b {
+    background: var(--color-accentb);
+    color: #fff;
+}
+
+/**--------
+Color themes type
+--------**/
+
+.dummy-type {
+    color: var(--color-dummy);
+}
+
+
+/**--------
+Color typography
+--------**/
+
+body {
+    color: var(--color-greydark);
+}
+
 
 
 header {
-    background: hsl(200,21%,34%);
+    background: hsl(200, 21%, 34%);
 }
 
 .header-icon {
@@ -116,14 +295,14 @@ NAVIGATION
 ---------------------*/
 
 nav.burger-icon {
-    position:fixed;
+    position: fixed;
     width: 100%;
     z-index: 1000;
     top: 0;
     right: 0;
     padding: 0.5em;
-    background: rgba(255,255,255,0.9);
-    border-bottom: 1px solid rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 
@@ -132,12 +311,12 @@ nav.burger-icon i {
     margin-left: 80vw;
 }
 
-nav.burger-icon a{
-    color: hsl(200,21%,13%);
-} 
+nav.burger-icon a {
+    color: hsl(200, 21%, 13%);
+}
 
 nav.main-nav > div {
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     position: sticky;
     top: 0;
 }
@@ -160,17 +339,17 @@ nav.main-nav > div > ul > li a {
 }
 
 nav.main-nav > div > ul > li a:hover {
-    color: rgb(255,128,0);    
+    color: rgb(255, 128, 0);
 }
 
 
 nav.mobile-nav {
     padding-top: 70px;
-padding-bottom: 100vh;
+    padding-bottom: 100vh;
 }
 
 nav.mobile-nav > div ul {
-       list-style-type: none; 
+    list-style-type: none;
     padding: 0;
 }
 
@@ -190,6 +369,14 @@ COMPONENTS
 ---------------------*/
 
 /**
+Lists Reset
+**/
+ul.list-type-a li,
+ul.list-type-b li {
+    margin-left: 0;
+}
+
+/**
 List Type A
 **/
 
@@ -198,8 +385,8 @@ ul.list-type-a {
     font-size: 0.8em;
 }
 
-ul li {
-    margin-bottom: 1em;
+ul.list-type-a li {
+    margin-bottom: 0.3em;
 }
 
 /**
@@ -210,14 +397,35 @@ ul.list-type-b {
     list-style-type: none;
     font-size: 0.9em;
     font-weight: 600;
-    color: red;
 }
 
-ul li {
-    margin-bottom: 1em;
+ul.list-type-b li {
+    margin-bottom: 0.8em;
 }
 
+/*---------------------
+STYLEGUIDE
+---------------------*/
 
+body.styleguide section {
+    padding-bottom: 1em;
+}
+
+body.styleguide section > .container {
+    border-bottom: 1px solid #000;
+}
+
+body.styleguide section > .container > div {
+    margin-bottom: 3rem;
+}
+
+div.color-sample {
+    width: 10em;
+    height: 10em;
+    padding: 0.5em;
+    font-size: 0.8em;
+    font-weight: 600;
+}
 
 
 
@@ -226,23 +434,40 @@ RESPONSIVE (MEDIAQUERIES)
 ---------------------*/
 
 @media only screen and (min-width: 600px) {
-    
-    
+
+
     nav.main-nav {
-    display: block;
-}
-    
+        display: block;
+    }
+
     nav.mobile-nav,
     nav.burger-icon {
-    display: none;
+        display: none;
+    }
+
+    .true-columns {
+        column-count: 2;
+        column-gap: var(--layout-column-gap);
+    }
+    
+    .true-columns div {
+-webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
 }
 
-    /*    
-    p {
+    .flex-columns > * {
         width: 50%;
-        padding-right: 1em;
     }
-    */
+
+    .flex-columns > *:nth-child(odd) {
+        padding-right: calc(var(--layout-column-gap) / 2);
+    }
+
+    .flex-columns > *:nth-child(even) {
+        padding-left: calc(var(--layout-column-gap) / 2);
+    }
+
 
     main {
         font-size: 1em;
@@ -252,28 +477,31 @@ RESPONSIVE (MEDIAQUERIES)
 
 
 @media only screen and (min-width: 900px) {
-/*
-    p {
-        width: 33%;
+
+    .true-columns {
+        column-count: 3;
+        column-gap: var(--layout-column-gap);
     }
-    */
+
+    .flex-columns > * {
+        width: 33.33%;
+    }
+
+    .flex-columns > *:nth-child(3n+1) {
+        padding-right: calc(var(--layout-column-gap) / 2);
+    }
+
+    .flex-columns > *:nth-child(3n+2) {
+        padding-left: calc(var(--layout-column-gap) / 2);
+        padding-right: calc(var(--layout-column-gap) / 2);
+    }
+
+    .flex-columns > *:nth-child(3n+3) {
+        padding-left: calc(var(--layout-column-gap) / 2);
+    }
 }
 
 
 /*---------------------
 TEST & OVERRIDES
 ---------------------*/
-
-
-
-
-article h2 {
-    background: red;
-}
-
-
-article h2 {
-    background: pink;
-}
-
-
