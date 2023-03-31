@@ -3,7 +3,7 @@ Theme Name: Baumeister Custom PHP Theme
 Author: Enno Hyttrek
 Author URI: https://ennohyttrek.de
 Description: Ein einfaches PHP basiertes Theme, um zu lernen, wie man das überhaupt macht.
-Version: 8.2
+Version: 8.3
 */
 
 /*---------------------
@@ -40,6 +40,7 @@ Layout Variables
 
 :root {
     --layout-column-gap: 1rem;
+    --layout-stage-padding-h: 20px;
 }
 
 /**--------
@@ -65,10 +66,13 @@ figure {
 'Stage'
 --------**/
 
-section > div.container {
+header > div.container,
+footer > div.container,
+section > div.container,
+nav.main-nav > div {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1em 20px;
+    padding: 1em var(--layout-stage-padding-h);
 }
 
 /**--------
@@ -100,7 +104,9 @@ header {
     padding-top: 1em;
 }
 
-header p {
+header,
+header p,
+header h1 {
     margin-bottom: 0;
 }
 
@@ -153,9 +159,13 @@ Typography Variables
 }
 
 
+/**--------
+Typography Basics
+--------**/
+
 body {
     font-family: 'Inter', Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 3body_00;
     line-height: var(--type-line-height);
     font-size: 15px;
 }
@@ -164,6 +174,11 @@ body {
 p {
     margin-bottom: calc(1em * var(--type-line-height));
 }
+
+/**--------
+Typography Headings
+--------**/
+
 
 h1,
 h2,
@@ -193,11 +208,19 @@ h4 {
     line-height: var(--type-line-height);
     padding-top: calc(1em * var(--type-line-height));
     margin-bottom: calc(1em * var(--type-line-height));
-/*    margin-bottom: 0;*/
+    /*    margin-bottom: 0;*/
 }
 
 h4.first-h4 {
     padding-top: 0;
+}
+
+/**--------
+Typography Footer
+--------**/
+
+footer {
+    font-size: 0.8em;
 }
 
 
@@ -210,59 +233,144 @@ Color variables
 --------**/
 
 :root {
-    --grey-saturation: 8%;
+
+    /*Primary Colors*/
+    --primary-a-hue: 100;
+    --color-primary-a: hsl(var(--primary-a-hue), 94%, 21%);
+    --color-primary-a-dark: hsl(var(--primary-a-hue), 94%, 13%);
+    --color-primary-a-dark-90: hsla(var(--primary-a-hue), 94%, 13%,0.9);
+    --color-primary-a-light: hsl(var(--primary-a-hue), 94%, 55%);
+
+    --primary-b-hue: 80;
+    --color-primary-b: hsl(var(--primary-b-hue), 94%, 21%);
+/*    --color-primary-b: hsl(50, 94%, 21%);*/
+    --color-primary-b-dark: hsl(var(--primary-b-hue), 94%, 13%);
+    --color-primary-b-light: hsl(var(--primary-b-hue), 94%, 55%);
+
+    /*Grey Scale*/
+    --grey-saturation: 21%;
     --grey-hue: 200;
-    --color-subblack: hsl(var(--grey-hue), 5%, 8%);
-    --color-greydark: hsl(var(--grey-hue), var(--grey-saturation), 21%);
+    --color-sub-black: hsl(var(--grey-hue), 5%, 8%);
+    --color-grey-dark: hsl(var(--grey-hue), var(--grey-saturation), 21%);
     --color-grey: hsl(var(--grey-hue), var(--grey-saturation), 55%);
-    --color-greylight: hsl(var(--grey-hue), var(--grey-saturation), 89%);
-    --color-subwhite: hsl(var(--grey-hue), 5%, 97%);
-    --color-accenta: hsl(34, 94%, 55%);
-    --color-accentb: hsl(89, 76%, 42%);
-    --color-dummy: rgb(255, 0, 128);
+    --color-grey-mid-light: hsl(var(--grey-hue), var(--grey-saturation), 76%);
+    --color-grey-light: hsl(var(--grey-hue), var(--grey-saturation), 89%);
+    --color-sub-white: hsl(var(--grey-hue), 5%, 97%);
+
+    /*Accent Colors*/
+    --color-accent-a: hsl(34, 94%, 55%);
+    --color-accent-b: hsl(170, 94%, 55%);
+
+    /*Functional Colors*/
+    --color-navbar-a: hsla(200, 76%, 21%, 0.9);
+    --color-dummy: rgb(255, 0, 255);
+    --color-hover: var(--color-accent-b);
 }
 
 /**--------
-Color themes background
+Color Themes Background
 --------**/
+
+/***---
+Color Primary A Themes
+---***/
+
+.primary-a {
+    background: var(--color-primary-a);
+    color: var(--color-primary-a-light);
+}
+
+.primary-a p {
+    color: #fff;
+}
+
+.primary-a nav.main-nav {
+    background: var(--color-primary-a-dark-90);
+}
+
+.primary-a-dark {
+    background: var(--color-primary-a-dark);
+    color: var(--color-primary-a-light);
+}
+
+.primary-a-light {
+    background: var(--color-primary-a-light);
+    color: var(--color-primary-a-dark);
+}
+
+/***---
+Color Primary B Themes
+---***/
+
+.primary-b {
+    background: var(--color-primary-b);
+    color: var(--color-primary-b-light);
+}
+
+.primary-b-dark {
+    background: var(--color-primary-b-dark);
+    color: var(--color-primary-b-light);
+}
+
+.primary-b-light {
+    background: var(--color-primary-b-light);
+    color: var(--color-primary-b-dark);
+}
+
+/***---
+Color Grey Themes
+---***/
+
+.sub-black {
+    background: var(--color-sub-black);
+    color: var(--color-sub-white);
+}
+
+.grey-dark {
+    background: var(--color-grey-dark);
+    color: var(--color-grey-light);
+}
+
+.grey-mid-light {
+    background: var(--color-grey-mid-light);
+    color: var(--color-grey-dark);
+}
+
+.grey-light {
+    background: var(--color-grey-light);
+    color: var(--color-grey-dark);
+}
+
+.sub-white {
+    background: var(--color-sub-white);
+    color: var(--color-sub-black);
+}
+
+/***---
+Color Accent Themes
+---***/
+
+.accent-a {
+    background: var(--color-accent-a);
+    color: #fff;
+}
+
+.accent-b {
+    background: var(--color-accent-b);
+    color: #fff;
+}
+
+/***---
+Color Functional Themes
+---***/
 
 .dummy {
     background: var(--color-dummy);
     color: #fff;
 }
 
-.sub-black {
-    background: var(--color-subblack);
-    color: var(--color-subwhite);
-}
-
-.grey-dark {
-    background: var(--color-greydark);
-    color: var(--color-greylight);
-}
-
-.grey-light {
-    background: var(--color-greylight);
-    color: var(--color-greydark);
-}
-
-.sub-white {
-    background: var(--color-subwhite);
-    color: var(--color-subblack);
-}
-
-.accent-a {
-    background: var(--color-accenta);
-    color: #fff;
-}
-
-.accent-b {
-    background: var(--color-accentb);
-    color: #fff;
-}
-
 /**--------
-Color themes type
+Color Themes Type
 --------**/
 
 .dummy-type {
@@ -271,25 +379,61 @@ Color themes type
 
 
 /**--------
-Color typography
+Color Typography
 --------**/
 
 body {
-    color: var(--color-greydark);
+    color: var(--color-grey-dark);
 }
 
 
+/**--------
+Color Header
+--------**/
 
 header {
-    background: hsl(200, 21%, 34%);
+    background: var(--color-grey-light);
+    color: var(--color-primary-a-dark);
 }
 
+/*
 .header-icon {
     color: #fff;
 }
+*/
+
+/**--------
+Color Main Nav
+--------**/
+
+nav.main-nav {
+    background: var(--color-navbar-a);
+}
+
+nav.main-nav a {
+    color: var(--color-grey-light);
+}
+
+nav.main-nav a:hover {
+    color: var(--color-hover);
+}
+
+/**--------
+Color Footer
+--------**/
+
 
 footer {
-    background: darkgrey;
+    background: var(--color-grey-dark);
+}
+
+footer,
+footer a {
+    color: var(--color-grey-mid-light);
+}
+
+footer a:hover {
+    color: #fff;
 }
 
 /*---------------------
@@ -317,31 +461,34 @@ nav.burger-icon a {
     color: hsl(200, 21%, 13%);
 }
 
-nav.main-nav > div {
-    background: rgba(0, 0, 0, 0.9);
+nav.main-nav {
     position: sticky;
     top: 0;
 }
 
 
+nav.main-nav > div {
+    padding: 0 var(--layout-stage-padding-h);
+}
+
+nav.footer-nav > div > ul,
 nav.main-nav > div > ul {
     display: flex;
     list-style-type: none;
+    margin: 0;
 }
 
+nav.footer-nav > div > ul > li,
 nav.main-nav > div > ul > li {
+    margin: 0;
     margin-right: 1em;
 }
 
+nav.footer-nav > div > ul > li a,
 nav.main-nav > div > ul > li a {
     display: inline-block;
     text-decoration: none;
-    color: #fff;
     padding: 0.5em 0;
-}
-
-nav.main-nav > div > ul > li a:hover {
-    color: rgb(255, 128, 0);
 }
 
 
@@ -451,12 +598,12 @@ RESPONSIVE (MEDIAQUERIES)
         column-count: 2;
         column-gap: var(--layout-column-gap);
     }
-    
+
     .true-columns div {
--webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;
-}
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 
     .flex-columns > * {
         width: 50%;
@@ -486,7 +633,10 @@ RESPONSIVE (MEDIAQUERIES)
 
     .flex-columns > * {
         width: 33.33%;
-/*        width: 25%;*/
+    }
+
+    .flex-columns > *:nth-child(even) {
+        padding-left: 0;
     }
 
     .flex-columns > *:nth-child(3n+1) {

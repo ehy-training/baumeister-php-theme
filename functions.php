@@ -18,3 +18,18 @@ function register_my_menus() {
    );
  }
  add_action( 'init', 'register_my_menus' );
+
+
+function add_categories( $classes = '' ) {
+
+    $categories = get_the_category();
+    foreach( $categories as $category ) {
+//    $classes[] = 'category-'.$category->slug;
+    $classes[] = $category->slug;
+
+
+}
+ return $classes;
+}
+add_filter( 'body_class', 'add_categories' );
+//source: https://stackoverflow.com/questions/45972062/add-multiple-categories-to-body-class-wordpress
