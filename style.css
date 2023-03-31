@@ -235,7 +235,7 @@ Color variables
 :root {
 
     /*Primary Colors*/
-    --primary-a-hue: 100;
+    --primary-a-hue: 200;
     --color-primary-a: hsl(var(--primary-a-hue), 94%, 21%);
     --color-primary-a-dark: hsl(var(--primary-a-hue), 94%, 13%);
     --color-primary-a-dark-90: hsla(var(--primary-a-hue), 94%, 13%,0.9);
@@ -243,13 +243,13 @@ Color variables
 
     --primary-b-hue: 80;
     --color-primary-b: hsl(var(--primary-b-hue), 94%, 21%);
-/*    --color-primary-b: hsl(50, 94%, 21%);*/
+/*    --color-primary-b: hsl(110, 94%, 21%);*/
     --color-primary-b-dark: hsl(var(--primary-b-hue), 94%, 13%);
     --color-primary-b-light: hsl(var(--primary-b-hue), 94%, 55%);
 
     /*Grey Scale*/
     --grey-saturation: 21%;
-    --grey-hue: 200;
+    --grey-hue: 220;
     --color-sub-black: hsl(var(--grey-hue), 5%, 8%);
     --color-grey-dark: hsl(var(--grey-hue), var(--grey-saturation), 21%);
     --color-grey: hsl(var(--grey-hue), var(--grey-saturation), 55%);
@@ -314,7 +314,7 @@ Color Primary B Themes
 
 .primary-b-light {
     background: var(--color-primary-b-light);
-    color: var(--color-primary-b-dark);
+    color: var(--color-primary-b-dark) !important;
 }
 
 /***---
