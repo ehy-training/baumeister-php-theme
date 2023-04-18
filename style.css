@@ -3,7 +3,7 @@ Theme Name: Baumeister Custom PHP Theme
 Author: Enno Hyttrek
 Author URI: https://ennohyttrek.de
 Description: Ein einfaches PHP basiertes Theme, um zu lernen, wie man das überhaupt macht.
-Version: 8.3
+Version: 8.4
 */
 
 /*---------------------
@@ -27,6 +27,10 @@ nav.main-nav {
 
 ul {
     padding: 40px;
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -238,12 +242,12 @@ Color variables
     --primary-a-hue: 200;
     --color-primary-a: hsl(var(--primary-a-hue), 94%, 21%);
     --color-primary-a-dark: hsl(var(--primary-a-hue), 94%, 13%);
-    --color-primary-a-dark-90: hsla(var(--primary-a-hue), 94%, 13%,0.9);
+    --color-primary-a-dark-90: hsla(var(--primary-a-hue), 94%, 13%, 0.9);
     --color-primary-a-light: hsl(var(--primary-a-hue), 94%, 55%);
 
     --primary-b-hue: 80;
     --color-primary-b: hsl(var(--primary-b-hue), 94%, 21%);
-/*    --color-primary-b: hsl(110, 94%, 21%);*/
+    /*    --color-primary-b: hsl(110, 94%, 21%);*/
     --color-primary-b-dark: hsl(var(--primary-b-hue), 94%, 13%);
     --color-primary-b-light: hsl(var(--primary-b-hue), 94%, 55%);
 
@@ -256,6 +260,8 @@ Color variables
     --color-grey-mid-light: hsl(var(--grey-hue), var(--grey-saturation), 76%);
     --color-grey-light: hsl(var(--grey-hue), var(--grey-saturation), 89%);
     --color-sub-white: hsl(var(--grey-hue), 5%, 97%);
+    --color-overlay-dark: hsla(var(--grey-hue), var(--grey-saturation), 21%,0.8);
+    --color-overlay-light: hsla(var(--grey-hue), var(--grey-saturation), 94%,0.8);
 
     /*Accent Colors*/
     --color-accent-a: hsl(34, 94%, 55%);
@@ -264,7 +270,7 @@ Color variables
     /*Functional Colors*/
     --color-navbar-a: hsla(200, 76%, 21%, 0.9);
     --color-dummy: rgb(255, 0, 255);
-    --color-hover: var(--color-accent-b);
+    --color-hover: var(--color-accent-a);
 }
 
 /**--------
@@ -382,8 +388,13 @@ Color Themes Type
 Color Typography
 --------**/
 
-body {
+body,
+a {
     color: var(--color-grey-dark);
+}
+
+a:hover {
+    color: var(--color-hover);
 }
 
 
@@ -551,6 +562,36 @@ ul.list-type-b {
 ul.list-type-b li {
     margin-bottom: 0.8em;
 }
+
+/**
+Cards Reset
+**/
+
+ul.card-a {
+    list-style-type: none;
+}
+
+ul.card-a li {
+    margin: 0;
+    position: relative;
+    background: var(--color-dummy);
+}
+
+/**
+Card Type A
+**/
+
+ul.card-a .card-overlay {
+    z-index: 1000;
+    position: absolute;
+    background: var(--color-overlay-light);
+    width: 100%;
+    bottom: 0;
+    padding: 1em;
+}
+
+
+
 
 /*---------------------
 STYLEGUIDE
